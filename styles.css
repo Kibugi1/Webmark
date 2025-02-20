@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: Poppins;
+    background-color: #ffffff;
+    color: #eee;
+    margin: 0;
+    font-size: 12px;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+    /* color: #eee;*/
+}
+header{
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    /*background-color: #ffffff;*/
+}
+header img{
+    position: relative;
+    /*top: -40px;*/
+    /*left: -128px;*/
+    width: 150px;
+    margin-top: 66px;
+}
+header nav{
+    margin-left: 80px;
+    color: #eee;
+    margin-top: 108px;
+    /*margin-left: -40px;*/
+}
+header nav a{
+margin-right: 40px;
+color: #ffffff;
+font-weight: bold;
+letter-spacing: 2px;
+font-size: 1em;
+}
+/* styling of the welcome section */
+.welcome{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: -50px;
+    position: relative;
+}
+/* new add*/
+.welcome .list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stacking items vertically */
+    position: relative;
+}
+.welcome .list .item {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+/*new add ends*/
+.welcome .list .item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 58, 95, 0.7); /* deep blue overlay*/
+    z-index: 2;
+}
+.welcome .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.welcome .list .item .content{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+    z-index: 2;
+    text-align: center;
+}
+.welcome .list .item .content .topic{
+    font-weight: normal;
+    letter-spacing: 5px;
+    font-size: larger;
+    color: #fff;
+}
+.welcome .list .item .content .title{
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 1.3em;
+}
+.welcome .list .item .content .des{
+    color: #fff;
+    font-size: 1.5em;
+}
+.welcome .button{
+    margin-top: 30px;
+}
+.welcome .button a{
+    margin-top: 30px;
+    background-color: #00879E;
+    padding: 10px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    color: #fff;
+}
+.arrows #prev,
+.arrows #next{
+    top: 60%;
+    /*right: 10%;*/
+    position: absolute;
+    z-index: 100;
+    height: 50px;
+    width: 50px;
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.arrows #prev {
+    left: 5%;
+}
+
+.arrows #next {
+    right: 5%;
+}
+
+/* animation text in first item */
+.welcome .list .item .title,
+.welcome .list .item .topic,
+.welcome .list .item .des,
+.welcome .list .item .button{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear forwards;
+}
+@keyframes showContent{
+    to{
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0px);
+    }
+}
+.welcome .list .item .content .topic{
+    animation-delay: 1.2s
+}
+.welcome .list .item .content .title{
+    animation-delay: 1.4s
+}
+.welcome .list .item .content .des{
+    animation-delay: 1.6s
+}
+.welcome .list .item .content .button{
+    animation-delay: 1.8s
+}
+/* welcome RWD */
+@media (max-width: 768px) {
+    .welcome {
+        height: 100vh;
+    }
+
+    .welcome .list .item {
+        height: 100vh;
+    }
+
+    .welcome .list .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures image always fills the screen */
+    }
+
+    /* Adjust text size for better readability */
+    .welcome .list .item .content .title {
+        font-size: 1.5em;
+    }
+
+    .welcome .list .item .content .des {
+        font-size: 1em;
+    }
+}
+/*welcome RWD ends*/
+@media (max-width: 1024px) {
+    .welcome .list .item .content {
+        top: 55%;
+    }
+
+    .welcome .list .item .content .title {
+        font-size: 1.8em;
+    }
+
+    .welcome .list .item .content .des {
+        font-size: 1.2em;
+    }
+
+    .arrows #prev,
+    .arrows #next {
+        top: 55%;
+        height: 40px;
+        width: 40px;
+        font-size: medium;
+    }
+}
+
+/* Small Screens: Mobile Phones (Below 768px) */
+@media (max-width: 768px) {
+    .welcome {
+        height: auto;
+    }
+
+    .welcome .list {
+        flex-direction: column;
+    }
+
+    .welcome .list .item {
+        height: auto;
+        padding: 20px;
+    }
+
+    .welcome .list .item .content {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        padding: 20px;
+    }
+
+    .welcome .list .item .content .title {
+        font-size: 1.5em;
+    }
+
+    .welcome .list .item .content .des {
+        font-size: 1em;
+    }
+
+    .welcome .button a {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    /* Hide arrows on small screens */
+    .arrows {
+        display: none;
+    }
+}
+.meet{
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    background-color: #fff;
+}
+.meet h1{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1px;
+}
+.priests{
+    position: relative;
+    display: flex;
+    column-gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    padding: 50px 0;
+    background-color: #1E3A5F;
+
+}
+.incharge{
+    width: 60%;
+    position: relative;
+    border-right: 1px solid #eee;
+    padding-left: 5px;
+}
+.frimg{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    top: 0;
+    margin-right: 50px;
+}
+.frimg img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.act{
+    width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+}
+.act h1{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1px;
+}
+.actions{
+    position: relative;
+    display: flex;
+   column-gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    /*margin: auto;*/
+    /*padding: 50px 0;*/
+    gap: 40px;
+}
+.actions .godly .actdiv{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-right: 1px solid #eee;
+    padding-left: 5px;
+    top: 0;
+    background-color: #1E3A5F;
+}
+.actions p{
+    font-size: 1em;
+    font-weight: 700;
+}
+.actions img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.actions .godly img{
+    height: 280px;
+    width: 700px;
+    top: 10px;
+    object-fit: cover;
+}
+.actions .events img{
+    height: 560px;
+    width: 500px;
+    top: 10px;
+    object-fit: cover;
+}
+.container{
+    display: flex;
+    position: relative;
+    align-items: center; /* Aligns image and text vertically */
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+}
+.details{
+    color: #eee;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 20px;
+    max-width: 60%;
+}
+.ourecc{
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    background-color: #fff;
+}
+.ourecc h1{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1px;
+}
+.groups{
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+    /*padding: 50px 0;*/
+    flex-wrap: wrap;
+   justify-content: center;
+    gap: 20px;
+}
+.groups .group{
+    width: 30%;
+    height: 500px;
+    position: relative;
+    border-right: 1px solid #eee;
+    padding-left: 0px;
+    background-color: #1E3A5F;
+    margin: 10px;
+}
+/* Remove top margin for the first three groups */
+.groups .group:nth-child(-n+3) {
+    margin-top: 0;
+}
+.groups .group img{
+    height: 270px;
+    width: 100%;
+    top: 0;
+    object-fit: cover;
+}
+.quote{
+    @media screen and (max-width: 768px) {
+        .priests {
+            flex-direction: column; /* Stack elements vertically */
+            row-gap: 30px; /* Add space between them */
+        }
+    
+        .incharge,
+        .asst {
+            width: 100%; /* Full width */
+            border-right: none; /* Remove border for better appearance */
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .priests {
+        flex-direction: column; /* Stack elements vertically */
+        row-gap: 30px; /* Add space between them */
+    }
+
+    .incharge,
+    .asst {
+        width: 100%; /* Full width */
+        border-right: none; /* Remove border for better appearance */
+    }
+}
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack image and details */
+        align-items: center; /* Center align on small screens */
+    }
+
+    .details {
+        font-size: 1.2em; /* Reduce font size for smaller screens */
+        text-align: center;
+        max-width: 100%; /* Allow text to take full width */
+        margin-left: 0; /* Remove left margin */
+    }
+
+    .quote {
+        font-size: 1em; /* Reduce quote font size */
+        text-align: center;
+        max-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .groups {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .groups .group {
+        width: 90%;  /* 1 per row */
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .groups .group img {
+        height: auto;
+    }
+}
+/* Medium screens: Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .actions .godly img,
+    .actions .events img {
+        width: 90%;
+        height: auto;
+    }
+
+    .actions .godly .actdiv {
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+/* Small screens: Mobile phones (below 768px) */
+@media (max-width: 768px) {
+    .actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .actions .godly, .actions .events {
+        width: 100%;
+        text-align: center;
+    }
+
+    .actions .godly img,
+    .actions .events img {
+        width: 100%;
+        height: auto;
+    }
+
+    .actions .godly .actdiv {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+}
